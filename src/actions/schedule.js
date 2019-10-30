@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { message } from 'antd';
 import { logout } from './auth';
+import { serverURL } from '../cfg';
 
 export const SCHEDULE_REQUEST = 'SCHEDULE_REQUEST';
 export const SCHEDULE_REQUEST_FAILED = 'SCHEDULE_REQUEST_FAILED';
@@ -11,7 +12,7 @@ export const scheduleRequestStart = () => {
     try {
       const token = getState().authReducer.token;
       dispatch(scheduleRequest());
-      const response = await axios.get(`http://192.168.0.73:3050/schedule?token=${token}`);
+      const response = await axios.get(`${serverURL}/schedule?token=${token}`);
       const { data } = response;
       dispatch(scheduleRequestSuccess(data));
     } catch(e) {

@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { message } from 'antd';
+import { serverURL } from '../cfg';
 
 export const LOGIN_REQUEST = 'LOGIN_REQUEST';
 export const LOGIN_ERROR = 'LOGIN_ERROR';
@@ -16,7 +17,7 @@ export const loginRequestStart = () => {
     dispatch(loginRequest());
     const state = getState().authReducer;
     try {
-      const response = await axios.post('http://192.168.0.73:3050/login', { username: state.usernameValue, password: state.passwordValue });
+      const response = await axios.post(`${serverURL}/login`, { username: state.usernameValue, password: state.passwordValue });
       const { data } = response;
       if (data.login === 'ok') {
         message.success("Poprawnie się zalogowano");

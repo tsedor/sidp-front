@@ -10,6 +10,8 @@ import { StyledContent, StyledHeader, StyledLayout, StyledSiteContent } from './
 import SiteFooter from '../Footer';
 import Dashboard from '../Dashboard/Dashboard';
 import Schedule from '../Shedule/Schedule';
+import Messages from '../Messages/Messages';
+import Announcement from '../Announcement/Announcement';
 
 const Main = () => {
   const dispatch = useDispatch();
@@ -31,6 +33,8 @@ const Main = () => {
               <Switch>
                 <Route exact path="/" component={Dashboard} />
                 <Route path="/schedule" component={Schedule} />
+                <Route path="/announcement" component={Announcement} />
+                <Route path="/messages" component={Messages} />
               </Switch>
             </StyledSiteContent>
           </StyledContent>
