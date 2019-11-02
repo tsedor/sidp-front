@@ -1,17 +1,22 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Button, Card, List, Typography } from 'antd';
 import { Link } from 'react-router-dom';
 
 import { AnnouncementTitle, CardBody, Item, ScheduleCard, SmallTitle } from './Dashboard.styled';
+import { dashboardRequestStart } from '../../actions/dashboard';
 
 const { Title } = Typography;
 
 const Dashboard = () => {
-  const schedule = useSelector(state => state.scheduleReducer.schedule);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(dashboardRequestStart())
+  }, [dispatch]);
+  const dashboard = useSelector(state => state.dashboardReducer.dashboard);
   return (
     <>
-    {schedule.map(item => (
+    {dashboard.map(item => (
       <ScheduleCard title={item.date} key={item.date} extra={<Link to="/schedule/2222">więcej</Link>}>
         <CardBody>
           <SmallTitle>Linia</SmallTitle>

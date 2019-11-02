@@ -1,4 +1,4 @@
-import { SCHEDULE_REQUEST, SCHEDULE_REQUEST_FAILED, SCHEDULE_REQUEST_SUCCESS } from "../actions/schedule";
+import { SCHEDULE_REQUEST, SCHEDULE_REQUEST_FAILED, SCHEDULE_REQUEST_SUCCESS } from "../actions/schedule"
 
 const initialState = {
   request: false,

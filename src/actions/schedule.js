@@ -12,7 +12,7 @@ export const scheduleRequestStart = () => {
     try {
       const token = getState().authReducer.token;
       dispatch(scheduleRequest());
-      const response = await axios.get(`${serverURL}/schedule?token=${token}`);
+      const response = await axios.get(`${serverURL}/schedule/month?token=${token}`);
       const { data } = response;
       dispatch(scheduleRequestSuccess(data));
     } catch(e) {

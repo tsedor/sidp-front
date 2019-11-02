@@ -1,9 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Breadcrumb, Layout } from 'antd';
-import { useDispatch } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 
-import { scheduleRequestStart } from '../../actions/schedule';
 import WithAuth from '../HOC/WithAuth';
 import LeftMenu from '../LeftMenu';
 import { StyledContent, StyledHeader, StyledLayout, StyledSiteContent } from './Main.styled';
@@ -14,10 +12,6 @@ import Messages from '../Messages/Messages';
 import Announcement from '../Announcement/Announcement';
 
 const Main = () => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(scheduleRequestStart())
-  }, [dispatch]);
   return (
     <main>
       <StyledLayout>
