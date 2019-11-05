@@ -10,6 +10,8 @@ import Dashboard from '../Dashboard/Dashboard';
 import Schedule from '../Shedule/Schedule';
 import Messages from '../Messages/Messages';
 import Announcement from '../Announcement/Announcement';
+import ScheduleEdit from '../Shedule/ScheduleEdit';
+import ScheduleShow from '../Shedule/ScheduleShow';
 
 const Main = () => {
   return (
@@ -26,6 +28,8 @@ const Main = () => {
             <StyledSiteContent>
               <Switch>
                 <Route exact path="/" component={Dashboard} />
+                <Route path="/schedule/edit/:year/:month/:day" component={ScheduleEdit} />
+                <Route path="/schedule/show/:year/:month/:day" component={ScheduleShow} />
                 <Route path="/schedule" component={Schedule} />
                 <Route path="/announcement" component={Announcement} />
                 <Route path="/messages" component={Messages} />
